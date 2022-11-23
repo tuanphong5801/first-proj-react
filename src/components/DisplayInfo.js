@@ -21,7 +21,7 @@ class DisplayInfo extends React.Component {
     //template + logic js
     return (
       <div className="display-info-container">
-        <img src={logo} />
+        {/* <img src={logo} /> */}
         <div>
           <span
             onClick={() => {
@@ -38,8 +38,17 @@ class DisplayInfo extends React.Component {
             {listUser.map((user, index) => {
               return (
                 <div key={user.id} className={+user.age > 18 ? "green" : "red"}>
-                  <div>My name is {user.name}</div>
-                  <div>I'm {user.age}</div>
+                  <>
+                    <div>My name is {user.name}</div>
+                    <div>I'm {user.age}</div>
+                  </>
+                  <button
+                    onClick={() => {
+                      this.props.handleDeleteUser(user.id);
+                    }}
+                  >
+                    Delete
+                  </button>
                   <hr />
                 </div>
               );
