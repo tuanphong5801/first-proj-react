@@ -17,6 +17,8 @@ class DisplayInfo extends React.Component {
     const { listUser } = this.props; //object
     //const listUser = this.props.listUser;
     //props => viết tắt của properties
+
+    //template + logic js
     return (
       <div className="display-info-container">
         <img src={logo} />
