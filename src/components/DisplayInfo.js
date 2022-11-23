@@ -4,11 +4,28 @@ import logo from "./../logo.svg";
 
 class DisplayInfo extends React.Component {
   constructor(props) {
+    console.log(">>>>> call me constructor: 1");
     super(props);
     //babel compiler
     this.state = {
       isShowListUser: true,
     };
+  }
+
+  componentDidMount() {
+    console.log(">>>>> call me component did mount");
+    setTimeout(() => {
+      document.title = "tuan phong";
+    }, 3000);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(">>>>> call me component did update", this.props, prevProps);
+    if (this.props.listUser !== prevProps.listUser) {
+      if (this.props.listUser.length === 5) {
+        alert("You got 5 members!");
+      }
+    }
   }
 
   handleShowHide = () => {
@@ -17,6 +34,7 @@ class DisplayInfo extends React.Component {
     });
   };
   render() {
+    console.log(">>>>>>> call me render");
     //destructuring array/object
     const { listUser } = this.props; //object
     //const listUser = this.props.listUser;
